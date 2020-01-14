@@ -3,7 +3,6 @@ package nc.opt.jhipster6.service;
 import nc.opt.jhipster6.Jhipster6App;
 import nc.opt.jhipster6.config.Constants;
 import nc.opt.jhipster6.domain.User;
-import nc.opt.jhipster6.repository.search.UserSearchRepository;
 import nc.opt.jhipster6.repository.UserRepository;
 import nc.opt.jhipster6.service.dto.UserDTO;
 
@@ -57,14 +56,6 @@ public class UserServiceIT {
 
     @Autowired
     private UserService userService;
-
-    /**
-     * This repository is mocked in the nc.opt.jhipster6.repository.search test package.
-     *
-     * @see nc.opt.jhipster6.repository.search.UserSearchRepositoryMockConfiguration
-     */
-    @Autowired
-    private UserSearchRepository mockUserSearchRepository;
 
     @Autowired
     private AuditingHandler auditingHandler;
@@ -180,8 +171,6 @@ public class UserServiceIT {
         users = userRepository.findAllByActivatedIsFalseAndActivationKeyIsNotNullAndCreatedDateBefore(now.minus(3, ChronoUnit.DAYS));
         assertThat(users).isEmpty();
 
-        // Verify Elasticsearch mock
-        verify(mockUserSearchRepository, times(1)).delete(user);
     }
 
     @Test
@@ -198,9 +187,6 @@ public class UserServiceIT {
         userService.removeNotActivatedUsers();
         Optional<User> maybeDbUser = userRepository.findById(dbUser.getId());
         assertThat(maybeDbUser).contains(dbUser);
-
-        // Verify Elasticsearch mock
-        verify(mockUserSearchRepository, never()).delete(user);
     }
 
     @Test

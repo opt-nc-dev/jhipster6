@@ -8,15 +8,9 @@ services:
       - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
       - SPRING_DATASOURCE_URL=jdbc:postgresql://jhipster6-postgresql:5432/jhipster6
       - JHIPSTER_SLEEP=30 # gives time for other services to boot before the application
-      - SPRING_DATA_JEST_URI=http://jhipster6-elasticsearch:9200
-      - SPRING_ELASTICSEARCH_REST_URIS=http://jhipster6-elasticsearch:9200
     ports:
       - 8080:8080
   jhipster6-postgresql:
     extends:
       file: postgresql.yml
       service: jhipster6-postgresql
-  jhipster6-elasticsearch:
-    extends:
-      file: elasticsearch.yml
-      service: jhipster6-elasticsearch
