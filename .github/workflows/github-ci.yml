@@ -40,8 +40,3 @@ jobs:
                   fi
             - name: Package application
               run: ./gradlew bootJar -Pprod -x test -x integrationTest
-            - name: Deploy to Heroku
-              if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-              env:
-                  HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-              run: ./gradlew deployHeroku --stacktrace --info --no-daemon
