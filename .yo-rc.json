@@ -37,6 +37,8 @@
     "enableTranslation": true,
     "nativeLanguage": "fr",
     "languages": ["fr"],
-    "blueprints": []
+    "blueprints": [],
+    "herokuAppName": "jhipster-6",
+    "herokuDeployType": "jar"
   }
 }
