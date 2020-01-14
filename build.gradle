@@ -37,7 +37,6 @@ sourceCompatibility=1.8
 targetCompatibility=1.8
 assert System.properties["java.specification.version"] == "1.8" || "11" || "12" || "13"
 
-apply from: "gradle/docker.gradle"
 apply from: "gradle/sonar.gradle"
 apply from: 'gradle/heroku.gradle'
 //jhipster-needle-gradle-apply-from - JHipster will add additional gradle scripts to be applied here
