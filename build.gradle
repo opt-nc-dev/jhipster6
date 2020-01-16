@@ -29,6 +29,7 @@ plugins {
 }
 jar {
     archiveBaseName = 'jhipster-6'
+    archiveVersion = '0.0.1-SNAPSHOT'
 }
 group = "nc.opt.jhipster6"
 version = "0.0.1-SNAPSHOT"
