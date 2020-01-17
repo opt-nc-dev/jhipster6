@@ -38,6 +38,6 @@
     "languages": ["fr"],
     "blueprints": [],
     "herokuAppName": "jhipster-6",
-    "herokuDeployType": "jar"
+    "herokuDeployType": "git"
   }
 }
