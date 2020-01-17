@@ -19,9 +19,7 @@ jobs:
             NG_CLI_ANALYTICS: false
         steps:
             - uses: actions/checkout@v1
-            - name: repertoire
-              run: pwd && ls -la && cd ./.github/actions && ls -la
-            - uses: ./.github/actions/action
+            - uses: ./.github/actions
             - name: Publish to GitHub Packages
               run: gradle publish
               env:
