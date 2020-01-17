@@ -1,7 +1,7 @@
 # jhipster6
  
 This application was generated using JHipster 6.6.0, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v6.6.0](https://www.jhipster.tech/documentation-archive/v6.6.0).
- 
+
 ## Development
 
 Before you can build this project, you must install and configure the following dependencies on your machine:
