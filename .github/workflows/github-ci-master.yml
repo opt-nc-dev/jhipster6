@@ -19,7 +19,7 @@ jobs:
             NG_CLI_ANALYTICS: false
         steps:
             - uses: actions/checkout@v1
-            - uses: ./.github/actions/hello-world-action
+            - uses: ./.github/actions/action
             - name: Publish to GitHub Packages
               run: gradle publish
               env:
