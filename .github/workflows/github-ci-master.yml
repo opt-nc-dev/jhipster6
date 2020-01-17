@@ -1,14 +1,13 @@
-name: Jhipster 6
+name: Jhipster 6 push Master
 on:
   # Trigger the workflow on push or pull request,
   # but only for the master branch
   push:
-    branches-ignore:
+    branches:
       - master
-  pull_request:
   jobs:
       pipeline:
-          name: jhipster6 pipeline
+          name: jhipster6 Master pipeline
           runs-on: ubuntu-latest
           if: "!contains(github.event.head_commit.message, '[ci skip]') && !contains(github.event.head_commit.message, '[skip ci]')"
           timeout-minutes: 40
@@ -21,3 +20,8 @@ on:
           steps:
               - uses: actions/checkout@v1
               - uses: ./.github/actions/hello-world-action
+              - name: Publish to GitHub Packages
+                run: gradle publish
+                env:
+                  USERNAME: ${{ github.actor }}
+                  PASSWORD: ${{ secrets.GITHUB_TOKEN }}
