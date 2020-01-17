@@ -55,9 +55,6 @@ jobs:
                   fi
             - name: Package application
               run: ./gradlew bootJar -Pprod -x test -x integrationTest
-            - name: Build site assets
-              working-directory: ${{ github.workspace }}
-              run: cd build && ls -la && cd libs && ls -la && cd ../..
             - name: Publish to GitHub Packages
               run: gradle publish
               env:
