@@ -1,13 +1,11 @@
-name: Jhipster 6 push Master
+name: Jhipster 6 Release
 on:
-  # Trigger the workflow on push,
-  # but only for the master branch
   push:
-    branches:
-      - master
+    tags:
+      - '*'
 jobs:
   pipeline:
-      name: jhipster6 pipeline for push on master
+      name: jhipster6 pipeline for release
       runs-on: ubuntu-latest
       if: "!contains(github.event.head_commit.message, '[ci skip]') && !contains(github.event.head_commit.message, '[skip ci]')"
       timeout-minutes: 40
